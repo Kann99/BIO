@@ -1,0 +1,221 @@
+
+# DNA Sequence Analysis
+
+dna = input("Enter DNA Sequence: ").upper()
+
+# Length
+print("\nSequence Length:", len(dna))
+
+# GC Content
+g = dna.count("G")
+c = dna.count("C")
+
+gc = ((g + c) / len(dna)) * 100
+
+print("GC Content:", round(gc, 2), "%")
+
+# Motif Search
+motif = input("Enter Motif: ").upper()
+
+positions = []
+
+for i in range(len(dna) - len(motif) + 1):
+    if dna[i:i + len(motif)] == motif:
+        positions.append(i)
+
+print("Motif Found At:", positions)
+
+# Start Codon
+start = dna.find("ATG")
+
+if start != -1:
+    print("Start Codon Found At:", start)
+else:
+    print("Start Codon Not Found")
+
+# Stop Codons
+stop_codons = ["TAA", "TAG", "TGA"]
+
+for stop in stop_codons:
+    pos = dna.find(stop)
+
+    if pos != -1:
+        print(stop, "Found At:", pos)
+    else:
+        print(stop, "Not Found")
+
+# Reverse Complement
+reverse = dna[::-1]
+complement = ""
+
+for base in reverse:
+    if base == "A":
+        complement += "T"
+    elif base == "T":
+        complement += "A"
+    elif base == "G":
+        complement += "C"
+    elif base == "C":
+        complement += "G"
+
+print("Reverse Complement:", complement)
+
+
+
+
+# PRACTICAL 1: DNA SEQUENCE ANALYSIS USING PYTHON
+
+## Code Explanation with Related Theory
+
+**1. DNA Input**
+
+```python
+dna = input("Enter DNA Sequence: ").upper()
+```
+**Explanation:** Accepts a DNA sequence from the user and converts it into uppercase.
+
+**Theory:** DNA consists of four nitrogenous bases: Adenine (A), Thymine (T), Guanine (G) and Cytosine (C).
+
+**2. Sequence Length**
+
+```python
+print("\nSequence Length:", len(dna))
+```
+**Explanation:** Calculates and displays the total number of nucleotides.
+
+**Theory:** DNA sequence length is the total number of nucleotides present in the sequence.
+
+Formula: L = A + T + G + C
+
+**3. GC Content**
+
+```python
+g = dna.count("G")
+c = dna.count("C")
+
+gc = ((g + c) / len(dna)) * 100
+
+print("GC Content:", round(gc, 2), "%")
+```
+**Explanation:**
+- `count("G")` counts Guanine bases.
+- `count("C")` counts Cytosine bases.
+- The formula calculates GC content as a percentage.
+- `round()` rounds the result to two decimal places.
+
+**Theory:** GC content is the percentage of Guanine and Cytosine bases in DNA. It helps study DNA composition and stability.
+
+Formula: GC Content = [(G + C) / Total Nucleotides] × 100
+
+**4. Motif Search**
+
+```python
+motif = input("Enter Motif: ").upper()
+
+positions = []
+
+for i in range(len(dna) - len(motif) + 1):
+    if dna[i:i + len(motif)] == motif:
+        positions.append(i)
+
+print("Motif Found At:", positions)
+```
+**Explanation:**
+- Accepts a motif from the user.
+- Creates an empty list to store positions.
+- The `for` loop checks possible positions in the DNA sequence.
+- The `if` condition compares the extracted sequence with the motif.
+- `append()` stores the matching positions.
+
+**Theory:** A motif is a short nucleotide sequence that may have a specific biological function, such as being part of a regulatory or binding site.
+
+**5. Start Codon Identification**
+
+```python
+start = dna.find("ATG")
+
+if start != -1:
+    print("Start Codon Found At:", start)
+else:
+    print("Start Codon Not Found")
+```
+**Explanation:**
+- `find("ATG")` searches for the first occurrence of ATG.
+- If the result is not -1, the start codon is found.
+- Otherwise, it displays that the start codon is not found.
+
+**Theory:** ATG is the common start codon. It signals the beginning of protein translation and codes for Methionine.
+
+**6. Stop Codon Identification**
+
+```python
+stop_codons = ["TAA", "TAG", "TGA"]
+
+for stop in stop_codons:
+    pos = dna.find(stop)
+
+    if pos != -1:
+        print(stop, "Found At:", pos)
+    else:
+        print(stop, "Not Found")
+```
+**Explanation:**
+- Stores the three stop codons in a list.
+- The `for` loop checks each stop codon.
+- `find()` searches for its first occurrence.
+- The `if-else` condition displays whether it is found.
+
+**Theory:** TAA, TAG and TGA are the three stop codons. They signal the termination of protein translation.
+
+**7. Reverse Complement**
+
+```python
+reverse = dna[::-1]
+complement = ""
+
+for base in reverse:
+    if base == "A":
+        complement += "T"
+    elif base == "T":
+        complement += "A"
+    elif base == "G":
+        complement += "C"
+    elif base == "C":
+        complement += "G"
+
+print("Reverse Complement:", complement)
+```
+**Explanation:**
+- `[::-1]` reverses the DNA sequence.
+- Creates an empty string to store the complement.
+- The `for` loop checks each base.
+- The `if-elif` conditions replace each base with its complementary base.
+- Finally, it displays the reverse complement.
+
+**Theory:** In DNA, complementary base pairing follows these rules:
+- A pairs with T.
+- T pairs with A.
+- G pairs with C.
+- C pairs with G.
+
+A reverse complement is the reversed sequence with complementary bases.
+
+## Important Formulas
+
+1. Sequence Length = A + T + G + C
+2. GC Content = [(G + C) / Total Nucleotides] × 100
+
+## Important Python Functions
+
+- `input()` – Accepts user input.
+- `upper()` – Converts text to uppercase.
+- `len()` – Calculates sequence length.
+- `count()` – Counts occurrences.
+- `find()` – Finds the first occurrence.
+- `append()` – Adds an element to a list.
+- `round()` – Rounds a value.
+- `[::-1]` – Reverses a sequence.
+
+## Conclusion
+
+Thus, DNA sequence analysis was performed successfully using Python by calculating sequence length and GC content, searching motifs, identifying start and stop codons, and generating the reverse complement.
