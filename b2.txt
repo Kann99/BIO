@@ -1,0 +1,194 @@
+First, create a CSV file named rna_seq.csv:
+Gene,Control,Treated
+Gene1,50,120
+Gene2,80,60
+Gene3,100,250
+Gene4,150,140
+Gene5,60,180
+Gene6,200,100
+
+
+# RNA-Seq Data Analysis
+
+import pandas as pd
+
+# Read Dataset
+data = pd.read_csv("rna_seq.csv")
+
+print("RNA-Seq Dataset\n")
+print(data)
+
+# Calculate Fold Change
+data["Fold Change"] = data["Treated"] / data["Control"]
+
+status = []
+
+for fc in data["Fold Change"]:
+    if fc >= 2:
+        status.append("Upregulated")
+    elif fc <= 0.5:
+        status.append("Downregulated")
+    else:
+        status.append("No Significant Change")
+
+data["Status"] = status
+
+print("\nDifferential Gene Expression\n")
+print(data)
+
+
+1. Import Pandas Library
+
+import pandas as pd
+
+Explanation: Imports the Pandas library and gives it the short name pd.
+
+Theory: Pandas is a Python library used to read, organize and analyze tabular data.
+
+2. Read Dataset
+
+data = pd.read_csv("rna_seq.csv")
+
+Explanation: Reads the RNA-Seq CSV file and stores the data in a DataFrame named data.
+
+Theory: RNA-Seq is a technique used to study gene expression by analyzing RNA. CSV stands for Comma-Separated Values.
+
+3. Display Dataset
+
+print("RNA-Seq Dataset\n")
+print(data)
+
+Explanation: Displays the RNA-Seq dataset on the screen.
+
+Theory: A DataFrame is a two-dimensional data structure containing rows and columns.
+
+4. Calculate Fold Change
+
+data["Fold Change"] = data["Treated"] / data["Control"]
+
+Explanation: Divides treated gene expression values by control values and stores the result in a new column called Fold Change.
+
+Theory: Fold Change measures how much gene expression changes between treated and control samples.
+
+Formula:
+
+Fold Change = Treated Expression / Control Expression
+
+FC greater than 1 indicates increased expression.
+
+FC less than 1 indicates decreased expression.
+
+FC equal to 1 indicates equal expression.
+
+5. Create Status List
+
+status = []
+
+Explanation: Creates an empty list to store the classification of each gene.
+
+Theory: Lists are used in Python to store multiple values in a single variable.
+
+6. Classify Gene Expression
+
+for fc in data["Fold Change"]:
+    if fc >= 2:
+        status.append("Upregulated")
+    elif fc <= 0.5:
+        status.append("Downregulated")
+    else:
+        status.append("No Significant Change")
+
+Explanation:
+
+for loop checks each fold-change value.
+
+if fc >= 2 classifies the gene as Upregulated.
+
+elif fc <= 0.5 classifies the gene as Downregulated.
+
+else classifies the gene as No Significant Change.
+
+append() adds the classification to the list.
+
+Theory:
+
+Upregulated: Gene expression increases at least two times (FC ≥ 2).
+
+Downregulated: Gene expression decreases to half or less (FC ≤ 0.5).
+
+No Significant Change: Fold Change is between 0.5 and 2.
+
+These are simplified practical thresholds, not statistical significance tests.
+
+7. Add Status Column
+
+data["Status"] = status
+
+Explanation: Adds the gene classification results to a new column named Status.
+
+Theory: Adding a new column helps organize and interpret the analysis results.
+
+8. Display Final Results
+
+print("\nDifferential Gene Expression\n")
+print(data)
+
+Explanation: Displays the final dataset with Fold Change and Status columns.
+
+Theory: Differential gene expression analysis identifies genes whose expression levels differ between control and treated samples.
+
+Important Formulas
+
+Fold Change
+
+FC = Treated Expression / Control Expression
+
+Upregulated Genes
+
+FC ≥ 2
+
+Downregulated Genes
+
+FC ≤ 0.5
+
+No Significant Change
+
+0.5 < FC < 2
+
+Percentage Change
+
+Percentage Change = (FC − 1) × 100
+
+Important Python Functions
+
+import pandas as pd – Imports the Pandas library.
+
+read_csv() – Reads a CSV file.
+
+print() – Displays output.
+
+for – Iterates through values.
+
+if-elif-else – Performs conditional checking.
+
+append() – Adds an item to a list.
+
+data["Column"] – Accesses or creates a DataFrame column.
+
+Important Theory Terms
+
+Gene Expression: The process by which information from a gene is used to produce a functional product.
+
+RNA-Seq: A sequencing technique used to measure RNA and study gene expression.
+
+Control Sample: The reference sample used for comparison.
+
+Treated Sample: The sample that receives a particular treatment.
+
+Upregulation: Increase in gene expression.
+
+Downregulation: Decrease in gene expression.
+
+Differential Gene Expression: Comparison of gene expression between different conditions.
+
+Fold Change: The ratio of treated expression to control expression.
