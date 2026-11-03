@@ -1,0 +1,143 @@
+
+# Protein Sequence Analysis
+
+protein = input("Enter Protein Sequence: ").upper()
+
+# Protein Length
+print("\nProtein Length:", len(protein))
+
+# Amino Acid Count
+print("\nAmino Acid Count\n")
+
+amino = "ACDEFGHIKLMNPQRSTVWY"
+
+for aa in amino:
+    count = protein.count(aa)
+
+    if count > 0:
+        print(aa, ":", count)
+
+# Approximate Molecular Weight
+weight = len(protein) * 110
+
+print("\nApproximate Molecular Weight:",
+      weight, "Daltons")
+  
+1. Protein Sequence Input
+
+protein = input("Enter Protein Sequence: ").upper()
+
+Explanation: Accepts a protein sequence from the user and converts it into uppercase.
+
+Theory: Proteins are made up of amino acids. There are 20 standard amino acids represented by single-letter codes.
+
+2. Protein Length
+
+print("\nProtein Length:", len(protein))
+
+Explanation: Calculates and displays the total number of amino acids in the protein sequence.
+
+Theory: Protein length is the total number of amino acid residues present in a protein.
+
+Formula:
+
+Protein Length = Total Number of Amino Acids
+
+3. Amino Acid Count
+
+print("\nAmino Acid Count\n")
+
+amino = "ACDEFGHIKLMNPQRSTVWY"
+
+for aa in amino:
+    count = protein.count(aa)
+
+    if count > 0:
+        print(aa, ":", count)
+
+Explanation:
+
+amino stores the 20 standard amino acid codes.
+
+for aa in amino checks each amino acid one by one.
+
+count() calculates the number of occurrences of each amino acid.
+
+if count > 0 displays only the amino acids present in the sequence.
+
+print() displays the amino acid and its count.
+
+Theory: Amino acid composition describes the number and types of amino acids present in a protein. It helps understand the composition of the protein.
+
+4. Approximate Molecular Weight
+
+weight = len(protein) * 110
+
+Explanation: Calculates the approximate molecular weight by multiplying protein length by 110 Daltons.
+
+Theory: The average approximate mass of an amino acid residue in a protein is about 110 Daltons.
+
+Formula:
+
+Approximate Molecular Weight = Number of Amino Acids × 110 Da
+
+5. Display Molecular Weight
+
+print("\nApproximate Molecular Weight:",
+      weight, "Daltons")
+
+Explanation: Displays the calculated approximate molecular weight of the protein.
+
+Theory: Dalton (Da) is a unit used to express the molecular mass of proteins and other molecules.
+
+Important Formulas
+
+Protein Length
+
+L = Total Number of Amino Acids
+
+Amino Acid Percentage
+
+Amino Acid Percentage = (Count of a particular amino acid / Total Amino Acids) × 100
+
+Approximate Molecular Weight
+
+MW = L × 110 Da
+
+Important Theory Terms
+
+Protein: A biological molecule made up of amino acids.
+
+Amino Acids: The basic building blocks of proteins.
+
+Primary Structure: The linear sequence of amino acids in a protein.
+
+Secondary Structure: Local folding patterns such as alpha helices and beta sheets.
+
+Tertiary Structure: The overall three-dimensional structure of a single protein chain.
+
+Quaternary Structure: The arrangement of multiple protein subunits.
+
+Molecular Weight: The mass of a protein molecule.
+
+Dalton: A unit used to measure molecular mass.
+
+SWISS-MODEL: An online tool used to predict protein 3D structures through homology modelling.
+
+Homology Modelling: A method of predicting a protein structure using a related protein with a known structure as a template.
+
+Important Python Functions
+
+input() – Accepts protein sequence input.
+
+upper() – Converts the sequence into uppercase.
+
+len() – Calculates the protein length.
+
+count() – Counts occurrences of amino acids.
+
+for – Iterates through amino acid codes.
+
+if – Checks whether an amino acid is present.
+
+print() – Displays output.
