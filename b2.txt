@@ -36,6 +36,14 @@ data["Status"] = status
 print("\nDifferential Gene Expression\n")
 print(data)
 
+csv 
+Gene	Control	Treated
+Gene1	50	120
+Gene2	80	60
+Gene3	100	250
+Gene4	150	140
+Gene5	60	180
+Gene6	200	100
 
 1. Import Pandas Library
 
